@@ -8,8 +8,13 @@ india_zone = timezone('Asia/Kolkata')
 def count_down(tz :timezone) -> tuple:
     """ Function return days and time to next new year """
 
+<<<<<<< HEAD
     new_year = datetime(datetime.now(tz).year + 1, 1, 1)
     today = datetime.now(tz)
+=======
+    new_year = datetime(datetime.now(tz).astimezone(UTC).year + 1, 1, 1)
+    today = datetime.now(tz).astimezone(UTC)
+>>>>>>> 48f468d849c9009bbfae78146f9672a2a4f97f4f
 
     day_diff = new_year.day - today.day
     if day_diff < 0:
