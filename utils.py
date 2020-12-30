@@ -3,11 +3,13 @@ from datetime import datetime
 from pytz import timezone, utc
 
 new_year = datetime.now().year + 1
-india_zone = timezone('Asia/Kolkata')
+india_zone = "Asia/Kolkata"
 
-def count_down(tz :timezone) -> tuple:
+
+def count_down(tz: timezone) -> tuple:
     """ Function return days and time to next new year """
 
+    tz = timezone(tz)
     new_year = datetime(datetime.now(tz).year + 1, 1, 1)
     today = datetime.now(tz)
 
@@ -15,9 +17,7 @@ def count_down(tz :timezone) -> tuple:
     if day_diff < 0:
         day_diff = 30 + new_year.day - today.day
     month_diff = 12 - today.month
-    total_days = int(
-        day_diff + ((month_diff / 2) * 30) + ((month_diff / 2) * 31)
-    )
+    total_days = int(day_diff + ((month_diff / 2) * 30) + ((month_diff / 2) * 31))
 
     hour_diff = new_year.hour - today.hour
     if hour_diff < 0:
@@ -31,9 +31,9 @@ def count_down(tz :timezone) -> tuple:
     if sec_diff < 0:
         sec_diff = 59 + (new_year.second - today.second)
 
-    return (
-        str(total_days).zfill(2),
-        str(hour_diff).zfill(2),
-        str(minute_diff).zfill(2),
-        str(sec_diff).zfill(2),
-    )
+    return {
+        "day": str(total_days).zfill(2),
+        "hour": str(hour_diff).zfill(2),
+        "min": str(minute_diff).zfill(2),
+        "sec": str(sec_diff).zfill(2),
+    }

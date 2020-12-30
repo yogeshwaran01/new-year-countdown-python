@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 
 from utils import count_down, new_year, india_zone
 
@@ -12,7 +12,11 @@ def index():
 
 @app.route("/time")
 def lapse():
-    return jsonify(count_down(india_zone))
+    tz = request.args.get("tz")
+    if tz is None:
+        return jsonify(count_down(india_zone))
+    else:
+        return jsonify(count_down(tz))
 
 
 if __name__ == "__main__":
