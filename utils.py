@@ -1,12 +1,14 @@
 from datetime import datetime
 
+from pytz import timezone
+
 new_year = datetime.now().year + 1
+india_zone = timezone('Asia/Kolkata')
 
-
-def count_down() -> tuple:
+def count_down(tz :timezone) -> tuple:
     """ Function return days and time to next new year"""
 
-    new_year = datetime(datetime.now().year + 1, 1, 1)
+    new_year = datetime(datetime.now(tz).year + 1, 1, 1)
     today = datetime.now()
 
     day_diff = new_year.day - today.day
