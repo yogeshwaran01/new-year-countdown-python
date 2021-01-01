@@ -43,6 +43,16 @@ li span {
     font-size: 4.5rem;
 }
 
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
 @media all and (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
