@@ -3,7 +3,7 @@
 
 <p align='center' > New Year CountDown using Python Datetime Module and Flask. </p>
 
-<a href='https://countdown-new-year.herokuapp.com/'> <h3 align='center'> Live App </h3> </a>
+<a href='https://fun-web-projects.herokuapp.com/fun/new-year-countdown'> <h3 align='center'> Live App </h3> </a>
 
 <hr>
 
@@ -15,7 +15,7 @@
  
  ## Website
  
- <a href='https://countdown-new-year.herokuapp.com/'> Website </a> for the live App
+ <a href='https://fun-web-projects.herokuapp.com/fun/new-year-countdown'> Website </a> for the live App
  
  ## Local
  
